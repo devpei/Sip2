@@ -2,8 +2,11 @@ package com.dev2future.sip2;
 
 import java.util.Date;
 
+<<<<<<< HEAD
 import org.junit.Test;
 
+=======
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 import com.ceridwen.circulation.SIP.exceptions.ChecksumError;
 import com.ceridwen.circulation.SIP.exceptions.InvalidFieldLength;
 import com.ceridwen.circulation.SIP.exceptions.MandatoryFieldOmitted;
@@ -20,7 +23,10 @@ import com.ceridwen.circulation.SIP.messages.PatronStatusRequest;
 import com.ceridwen.circulation.SIP.transport.Connection;
 import com.ceridwen.circulation.SIP.transport.SocketConnection;
 import com.ceridwen.circulation.SIP.types.enumerations.Language;
+<<<<<<< HEAD
 import com.dev2future.sip2.messages.BookInfo;
+=======
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 
 /**
  * Sip2 测试
@@ -37,9 +43,15 @@ public class StartSip {
 		connect.setIdleTimeout(30000);
 		connect.setRetryAttempts(2);
 		connect.setRetryWait(500);
+<<<<<<< HEAD
 		userInfo(connect);
 		try {
 			//connect.connect();
+=======
+
+		try {
+			connect.connect();
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 			System.out.println("==>" + connect.getHost() + "连接成功");
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -50,10 +62,17 @@ public class StartSip {
 		// 登录
 		if (login(connect)) {
 			// 查询图书信息
+<<<<<<< HEAD
 			bookInfo(connect);
 
 			// 查询用户信息
 			// userInfo(connect);
+=======
+			// bookInfo(connect);
+
+			// 查询用户信息
+			userInfo(connect);
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 		}
 
 		try {
@@ -118,7 +137,11 @@ public class StartSip {
 		// 语言
 		patronInformationRequest.setLanguage(Language.ENGLISH);
 
+<<<<<<< HEAD
 		// patronInformationRequest.setInstitutionId("HGD");
+=======
+		//patronInformationRequest.setInstitutionId("HGD");
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 
 		patronInformationRequest.setTransactionDate(new Date());
 
@@ -132,7 +155,11 @@ public class StartSip {
 			PatronInformationResponse patronInformationResponse = (PatronInformationResponse) connect
 					.send(patronInformationRequest);
 
+<<<<<<< HEAD
 			System.out.println("<==Receive:");
+=======
+			System.out.println("Receive:");
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 
 			System.out.println(patronInformationResponse.encode());
 
@@ -151,6 +178,7 @@ public class StartSip {
 
 		System.out.println("==>查询书籍信息");
 
+<<<<<<< HEAD
 		Message bookInfoRequest = new BookInfo();// new ItemInformation();
 
 		((BookInfo) bookInfoRequest).setLanguage(Language.CHINESE);
@@ -167,6 +195,16 @@ public class StartSip {
 //		// 书籍标识
 //		((ItemInformation) bookInfoRequest).setItemIdentifier("4011486276");
 		// ((ItemInformation) bookInfoRequest).setTerminalPassword("123456");
+=======
+		Message bookInfoRequest = new ItemInformation();
+		((ItemInformation) bookInfoRequest).setTransactionDate(new Date());
+		// 机构标识
+		((ItemInformation) bookInfoRequest).setInstitutionId("AC14");
+		// 书籍标识
+		((ItemInformation) bookInfoRequest).setItemIdentifier("010200A16A130044CCF70200");
+		// ((ItemInformation) bookInfoRequest).setTerminalPassword("123456");
+
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 		try {
 
 			System.out.println("==>Send:");
@@ -192,6 +230,11 @@ public class StartSip {
 	 */
 	public static void patronStatus(Connection connect) {
 		PatronStatusRequest psr = new PatronStatusRequest();
+<<<<<<< HEAD
 
+=======
+		
+		
+>>>>>>> cfcfe9c3741bff8f647c3898b2e82fe11276edd0
 	}
 }
